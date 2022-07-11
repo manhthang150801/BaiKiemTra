@@ -1,24 +1,26 @@
-#!/bin/sh
-num=0
-while [ $num -eq 0 ]
-	do 
-		echo "Nhap ten file goc:"
-		read manh
-		if test -e "$manh"
-			then
-				echo "file da ton tai"
-				echo "Nhap ten dau file moi:"
-				read thang
-					if test -f "$manh"
-						then 
-							mv -- "$manh" "$thang.txt"
-							echo "Doi thanh cong"
-							ls -l *.txt
-					else
-						echo "Khong thanh cong"
-					fi
-		else
-			echo "file khong ton tai"
-		fi
-	done
-
+#!/bin/bash
+array=$@
+number_file=$#
+i=1
+echo -n "Nhap phan dau ten file moi: "
+read name_new
+function kiem_tra() {
+	if [ -e "$1" ]
+		then
+			if [ -f "$1" ]
+				then
+					rename_file $1
+			fi
+	fi
+}
+function rename_file(){
+	name="$name_new$i"
+	echo "`mv $1 $name`"
+	echo "$1 -> $name"
+}
+echo -e "\nCac file da doi ten: "
+for file in $@
+	do
+		kiem_tra $file
+		i=$((i+1))
+done 
