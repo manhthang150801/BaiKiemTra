@@ -8,6 +8,6 @@ else
   then
    echo "$so la so duong"
  else
-   echo "$o la so 0"
+   echo "$so la so 0"
  fi
 fi
