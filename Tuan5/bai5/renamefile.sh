@@ -13,7 +13,7 @@ while [ $num -eq 0 ]
 						then 
 							mv -- "$manh" "$thang.txt"
 							echo "Doi thanh cong"
-							exit 0
+							ls -l *.txt
 					else
 						echo "Khong thanh cong"
 					fi
