@@ -10,6 +10,6 @@ if [ -d "$file" ]; then
 		fi
 	done
 else
-  echo "${flie} khong tim thay."
+  echo "${file} khong tim thay."
   exit 1
 fi
